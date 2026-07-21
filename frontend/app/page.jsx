@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 export default function Home() {
   
   const [projects, setProjects] = useState([]);
+  const [lang, setLang] = useState("id");
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -20,6 +21,7 @@ export default function Home() {
         }
 
         const data = await res.json();
+        console.log(data);
         setProjects(data);
       } catch (error) {
         console.error(error);
@@ -71,14 +73,20 @@ export default function Home() {
           {projects.length > 0 ? (
             projects.map((project) => (
               <article className="projectCard" key={project.id}>
-                <h3>{project.name}</h3>
-                <p>{project.desc}</p>
+                <h3>{project.title[lang]}</h3>
+
+                <p>{project.summary[lang]}</p>
+
+                <p>
+                  <strong>Impact:</strong> {project.impact[lang]}
+                </p>
+
                 <div className="tags">
-                  {project.tech.map((tech) => (
-                    <span className="tag" key={tech}>
-                      {tech}
+                  {project.tools.map((tool) => (
+                    <span className="tag" key={tool}>
+                      {tool}
                     </span>
-                  ))}
+                ))}
                 </div>
               </article>
             ))
