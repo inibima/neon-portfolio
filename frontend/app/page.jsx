@@ -1,12 +1,28 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { translations } from "../data/translations";
 
 
 export default function Home() {
   
   const [projects, setProjects] = useState([]);
   const [lang, setLang] = useState("id");
+
+  const t = translations[lang];
+
+  useEffect(() => {
+  const savedLang = localStorage.getItem("lang");
+
+  if (savedLang) {
+    setLang(savedLang);
+  }
+  }, []);
+
+  useEffect(() => {
+  localStorage.setItem("lang", lang);
+  }, [lang]);
+
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -33,30 +49,43 @@ export default function Home() {
 
   return (
     <main className="page">
+
+      <div className="languageSwitch">
+        <button
+          onClick={() => setLang("id")}
+          disabled={lang === "id"}
+        >
+          ID
+        </button>
+
+        <button
+          onClick={() => setLang("en")}
+          disabled={lang === "en"}
+        >
+          EN
+        </button>
+      </div>
+
       <section className="hero">
         <p className="eyebrow">BIMA//NEON</p>
-        <h1>Cyberpunk Portfolio</h1>
-        <p className="subtitle">
-          Frontend React + Next.js, backend Python FastAPI, dibungkus dengan vibe neon futuristik.
-        </p>
+        <h1>{t.hero.title}</h1>
+        <p className="subtitle">{t.hero.subtitle}</p>
 
         <div className="hero-links">
-          <a href="#projects">View Projects</a>
-          <a href="#contact">Contact Me</a>
+          <a href="#projects">{t.hero.viewProjects}</a>
+          <a href="#contact">{t.hero.contactMe}</a>
         </div>
       </section>
 
       <section className="section" id="about">
-        <h2>About</h2>
+        <h2>{t.about.title}</h2>
         <p className="text">
-          Gue developer yang fokus bikin web modern, cepat, dan clean. Stack utama gue:
-          React, Next.js, Vue.js, Python, dan PHP. Untuk project ini, gue pakai Next.js
-          buat frontend dan FastAPI buat backend API.
+          {t.about.description}
         </p>
       </section>
 
       <section className="section" id="skills">
-        <h2>Skills</h2>
+        <h2>{t.skills.title}</h2>
         <div className="grid">
           <div className="card">React</div>
           <div className="card">Next.js</div>
@@ -68,7 +97,7 @@ export default function Home() {
       </section>
 
       <section className="section" id="projects">
-        <h2>Projects</h2>
+        <h2>{t.projects.title}</h2>
         <div className="projects">
           {projects.length > 0 ? (
             projects.map((project) => (
@@ -97,7 +126,7 @@ export default function Home() {
       </section>
 
       <section className="section" id="contact">
-        <h2>Contact</h2>
+        <h2>{t.contact.title}</h2>
         <form
           className="form"
           onSubmit={async (e) => {
@@ -117,17 +146,34 @@ export default function Home() {
             });
 
             if (res.ok) {
-              alert("Pesan berhasil dikirim.");
+              alert(t.contact.success);
+
+              console.log(e.currentTarget);
+              
               e.currentTarget.reset();
             } else {
-              alert("Gagal mengirim pesan.");
+              alert(t.contact.failed);
             }
           }}
         >
-          <input name="name" placeholder="Nama" required />
-          <input name="email" type="email" placeholder="Email" required />
-          <textarea name="message" placeholder="Pesan" rows="5" required />
-          <button type="submit">Kirim Pesan</button>
+          <input
+            name="name"
+            placeholder={t.contact.name}
+            required
+         />
+          <input
+            name="email"
+            type="email"
+            placeholder={t.contact.email}
+            required
+         />
+          <textarea
+            name="message"
+            placeholder={t.contact.message}
+            rows="5"
+            required
+         />
+          <button type="submit">{t.contact.send}</button>
         </form>
       </section>
     </main>
