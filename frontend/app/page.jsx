@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { translations } from "../data/translations";
+import Link from "next/link";
 
 
 export default function Home() {
@@ -71,10 +72,10 @@ export default function Home() {
           </li>
 
           <li><a href="#home" onClick={handleMenuClick}>{t.navbar.home}</a></li>
-          <li><a href="/about" onClick={handleMenuClick}>{t.navbar.about}</a></li>
-          <li><a href="/skills" onClick={handleMenuClick}>{t.navbar.skills}</a></li>
-          <li><a href="/projects" onClick={handleMenuClick}>{t.navbar.projects}</a></li>
-          <li><a href="/contact" onClick={handleMenuClick}>{t.navbar.contact}</a></li>
+         <li><Link href="/about" onClick={handleMenuClick}>{t.navbar.about}</Link></li>
+          <li><Link href="/skills" onClick={handleMenuClick}>{t.navbar.skills}</Link></li>
+          <li><Link href="/projects" onClick={handleMenuClick}>{t.navbar.projects}</Link></li>
+          <li><Link href="/contact" onClick={handleMenuClick}>{t.navbar.contact}</Link></li>
         </ul>
 
         <div className="languageSwitch">
