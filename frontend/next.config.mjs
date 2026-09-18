@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "export",
-  basePath: "/neon-portfolio",
+  basePath: process.env.NODE_ENV === "production" ? "/neon-portfolio" : "",
 };
 
 export default nextConfig;
