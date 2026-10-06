@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { translations } from "../../data/translations";
+import Link from "next/link";
 
 export default function Skills() {
   const [lang, setLang] = useState(null);
@@ -15,31 +16,25 @@ export default function Skills() {
 
   useEffect(() => {
     if (lang) {
-    localStorage.setItem("lang", lang);
+      localStorage.setItem("lang", lang);
     }
   }, [lang]);
 
   return (
     <main className="page">
       <div className="page-utility">
-      <a href="/" className="back-home">
-      ← Back to Home
-        </a>
+        <Link href="/" className="back-home">
+          ← Back to Home
+        </Link>
 
         <div className="languageSwitch">
-      <button
-        onClick={() => setLang("id")}
-        disabled={lang === "id"}
-      >
-        ID
-      </button>
+          <button onClick={() => setLang("id")} disabled={lang === "id"}>
+            ID
+          </button>
 
-      <button
-        onClick={() => setLang("en")}
-        disabled={lang === "en"}
-      >
-        EN
-      </button>
+          <button onClick={() => setLang("en")} disabled={lang === "en"}>
+            EN
+          </button>
         </div>
       </div>
 

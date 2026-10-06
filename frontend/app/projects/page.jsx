@@ -7,6 +7,7 @@ import projectsData from "../../data/projects";
 
 export default function Projects() {
   const [lang, setLang] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const currentLang = lang || "id";
   const t = translations[currentLang];
@@ -52,6 +53,15 @@ export default function Projects() {
           {projectsData.length > 0 ? (
             projectsData.map((project) => (
               <article className="projectCard" key={project.id}>
+                {project.image && (
+                  <img
+                    src={project.image}
+                    alt={project.title[currentLang]}
+                    className="project-image"
+                    onClick={() => setSelectedImage(project.image)}
+                  />
+                )}
+
                 <h3>{project.title[currentLang]}</h3>
 
                 <p>{project.summary[currentLang]}</p>
@@ -68,6 +78,24 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    View Project ↗
+                  </a>
+                )}
+
+                {project.video && (
+                  <video className="project-video" controls preload="metadata">
+                    <source src={project.video} type="video/mp4" />
+                    Your browser does not support the video element.
+                  </video>
+                )}
               </article>
             ))
           ) : (
@@ -75,6 +103,25 @@ export default function Projects() {
           )}
         </div>
       </section>
+
+      {selectedImage && (
+        <div className="image-lightbox" onClick={() => setSelectedImage(null)}>
+          <button
+            className="image-lightbox-close"
+            onClick={() => setSelectedImage(null)}
+            aria-label="Close image"
+          >
+            ×
+          </button>
+
+          <img
+            src={selectedImage}
+            alt="Project preview"
+            className="image-lightbox-content"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </main>
   );
 }
