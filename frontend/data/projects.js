@@ -1,3 +1,5 @@
+const basePath = process.env.NODE_ENV === "production" ? "/neon-portfolio" : "";
+
 const projects = [
   {
     id: 1,
@@ -19,9 +21,9 @@ const projects = [
 
     tools: ["Vue.js", "Express.js", "Node.js", "MongoDB"],
 
-    image: "/projects/images/BimaMall.png",
+    image: `${basePath}/projects/images/BimaMall.png`,
     link: "https://github.com/inibima/BimaMall_latihan",
-    video: "/projects/videos/Review Bimamall.mp4",
+    video: `${basePath}/projects/videos/Review Bimamall.mp4`,
   },
 
   {
@@ -44,9 +46,9 @@ const projects = [
 
     tools: ["Vue.js"],
 
-    image: "/projects/images/Portfolio 1.0.png",
+    image: `${basePath}/projects/images/Portfolio 1.0.png`,
     link: "https://github.com/inibima/Website-porto-Latihan",
-    video: "/projects/videos/Review Portfolio 1.0.mp4",
+    video: `${basePath}/projects/videos/Review Portfolio 1.0.mp4`,
   },
 
   {
@@ -69,9 +71,9 @@ const projects = [
 
     tools: ["Vue.js", "Firebase", "Bootstrap"],
 
-    image: "/projects/images/InvestasiBima.png",
+    image: `${basePath}/projects/images/InvestasiBima.png`,
     link: "https://github.com/inibima/Investasibima",
-    video: "/projects/videos/Review InvestasiBima.mp4",
+    video: `${basePath}/projects/videos/Review InvestasiBima.mp4`,
   },
 
   {
@@ -94,9 +96,9 @@ const projects = [
 
     tools: ["React", "Firebase"],
 
-    image: "/projects/images/Video Game Encyclopedia.png",
+    image: `${basePath}/projects/images/Video Game Encyclopedia.png`,
     link: "https://github.com/inibima/Bimapedia",
-    video: "/projects/videos/Review Video Game Encyclopedia.mp4",
+    video: `${basePath}/projects/videos/Review Video Game Encyclopedia.mp4`,
   },
 ];
 

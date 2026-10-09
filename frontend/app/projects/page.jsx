@@ -59,6 +59,7 @@ export default function Projects() {
                     alt={project.title[currentLang]}
                     className="project-image"
                     onClick={() => setSelectedImage(project.image)}
+                    loading="lazy"
                   />
                 )}
 

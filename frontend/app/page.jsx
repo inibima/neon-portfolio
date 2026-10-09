@@ -119,7 +119,10 @@ export default function Home() {
 
         <div className="profile-home">
           <div className="profile-home-image">
-            <img src="/awakku dewe.jpg" alt="Profile" />
+            <img
+              src={`${process.env.NODE_ENV === "production" ? "/neon-portfolio" : ""}/awakku%20dewe.jpg`}
+              alt="Profile"
+            />
           </div>
 
           <div className="profile-home-content">
