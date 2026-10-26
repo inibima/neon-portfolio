@@ -16,7 +16,7 @@ body {
 
   background:
     linear-gradient(rgba(5, 5, 16, 0.4), rgba(5, 5, 16, 0.55)),
-    url("/cyberpunk-background.png") center center / cover no-repeat,
+    url("/neon-portfolio/cyberpunk-background.png") center center / cover no-repeat,
     var(--bg);
 }
 
