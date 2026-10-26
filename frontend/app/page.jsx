@@ -22,6 +22,12 @@ export default function Home() {
   useEffect(() => {
     if (lang) {
       localStorage.setItem("lang", lang);
+
+      window.dispatchEvent(
+        new CustomEvent("languageChange", {
+          detail: lang,
+        }),
+      );
     }
   }, [lang]);
 
@@ -86,6 +92,20 @@ export default function Home() {
               {t.navbar.contact}
             </Link>
           </li>
+          
+          <li className="nav-radio-item">
+            <button
+              type="button"
+              className="nav-radio-button"
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("openNeonRadio"));
+                setMenuOpen(false);
+              }}
+            >
+              <span aria-hidden="true">♫</span>
+              <span>NEON RADIO</span>
+            </button>
+          </li>
         </ul>
 
         <div className="languageSwitch">
@@ -100,7 +120,10 @@ export default function Home() {
       </nav>
 
       <section className="hero" id="home">
+        <p className="eyebrow">WELCOME TO MY DIGITAL SPACE</p>
+
         <h1>{t.hero.title}</h1>
+
         <p className="subtitle">{t.hero.subtitle}</p>
 
         <div className="hero-links">

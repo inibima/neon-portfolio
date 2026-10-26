@@ -1,4 +1,5 @@
 import "./globals.css";
+import CyberpunkExperience from "./components/CyberpunkExperience";
 
 export const metadata = {
   title: "BIMA//NEON",
@@ -8,7 +9,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <CyberpunkExperience />
+        {children}
+      </body>
     </html>
   );
 }

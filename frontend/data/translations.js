@@ -19,7 +19,7 @@ export const translations = {
     profile: {
       title: "Profile",
       description:
-        "Saya Full-Stack Developer yang memiliki pengalaman dalam membangun aplikasi web menggunakan React, Next.js, Vue.js, Python, dan PHP. Saya terbiasa mengembangkan project dari sisi frontend hingga backend serta terus mengembangkan kemampuan melalui project dan pengalaman profesional.",
+        "Full-Stack Developer dengan pengalaman dalam pengembangan aplikasi web menggunakan React, Next.js, Vue.js, Python, dan PHP. Memiliki kemampuan dalam pengembangan frontend dan backend, dengan fokus pada implementasi yang terstruktur, kode yang mudah dipelihara, serta pengembangan kompetensi teknis melalui proyek dan pengalaman profesional.",
       viewMore: "Lihat Selengkapnya",
     },
 
@@ -33,16 +33,16 @@ export const translations = {
       },
 
       intro:
-        "Saya adalah Full-Stack Developer yang berfokus pada pengembangan aplikasi web modern. Saya menikmati proses membangun sebuah aplikasi dari sisi frontend hingga backend, sekaligus mempelajari bagaimana setiap bagian dapat bekerja secara terstruktur.",
+        "Full-Stack Developer yang berfokus pada pengembangan aplikasi web modern, mencakup frontend dan backend. Memiliki minat pada pengembangan solusi digital dengan struktur yang terorganisasi, fungsionalitas yang andal, dan pengalaman pengguna yang baik.",
 
       background:
-        "Saya mulai mempelajari web programming pada 2024 melalui pengembangan berbagai project menggunakan teknologi seperti MongoDB, Express.js, React, dan Node.js. Seiring berkembangnya kemampuan, saya memperluas pengalaman dengan Vue.js, Next.js, Python, FastAPI, dan PHP.",
+        "Perjalanan dalam pengembangan web dimulai pada 2024 melalui berbagai proyek menggunakan MongoDB, Express.js, React, dan Node.js. Kompetensi kemudian berkembang dengan mempelajari dan menerapkan Vue.js, Next.js, Python, FastAPI, dan PHP dalam pengembangan aplikasi web.",
 
       focus:
-        "Saat ini saya berfokus pada pengembangan aplikasi web menggunakan React dan Next.js untuk frontend serta Python FastAPI untuk backend. Saya juga terus memperdalam kemampuan melalui project pribadi, eksplorasi teknologi, dan pengalaman profesional.",
+        "Fokus pengembangan saat ini mencakup React dan Next.js untuk frontend serta Python FastAPI untuk backend. Perhatian utama meliputi implementasi fitur, struktur aplikasi yang terorganisasi, kualitas kode, dan integrasi antarkomponen.",
 
       direction:
-        "Saya ingin terus berkembang sebagai Full-Stack Developer dengan membangun aplikasi yang tidak hanya memiliki tampilan yang baik, tetapi juga memiliki struktur, performa, dan pengalaman pengguna yang baik.",
+        "Berkomitmen untuk terus mengembangkan kompetensi sebagai Full-Stack Developer melalui penerapan teknologi yang relevan dan penyelesaian proyek yang terukur. Tujuan pengembangan mencakup aplikasi yang mudah dipelihara, berkinerja baik, dan memberikan pengalaman pengguna yang optimal.",
     },
 
     skills: {
@@ -118,6 +118,14 @@ export const translations = {
       success: "Pesan berhasil dikirim.",
       failed: "Gagal mengirim pesan.",
     },
+
+    neonRadio: {
+      active: "CYBERPUNK MODE ACTIVE",
+      pressPlay: "TEKAN PLAY UNTUK MEMULAI",
+      paused: "MUSIK DIJEDA",
+      minimize: "Klik untuk menyembunyikan pemutar musik",
+      expand: "Klik untuk menampilkan pemutar musik",
+    },
   },
 
   en: {
@@ -140,7 +148,7 @@ export const translations = {
     profile: {
       title: "Profile",
       description:
-        "I am a Full-Stack Developer with experience building web applications using React, Next.js, Vue.js, Python, and PHP. I work across both frontend and backend development and continue to grow my skills through projects and professional experience.",
+        "Full-Stack Developer experienced in building web applications with React, Next.js, Vue.js, Python, and PHP. Skilled in frontend and backend development, with a focus on structured implementation, maintainable code, and continuous technical growth through hands-on projects and professional experience",
       viewMore: "Learn More",
     },
 
@@ -154,18 +162,18 @@ export const translations = {
       },
 
       intro:
-        "I am a Full-Stack Developer focused on building modern web applications. I enjoy developing applications from frontend to backend while learning how each part can work together in a structured way.",
+        "Full-Stack Developer focused on modern web application development across frontend and backend systems. Interested in building digital solutions with well-organized architecture, reliable functionality, and a strong user experience.",
 
       background:
-        "I started learning web programming in 2024 by developing various projects using technologies such as MongoDB, Express.js, React, and Node.js. As my skills developed, I expanded my experience with Vue.js, Next.js, Python, FastAPI, and PHP.",
+        "The web development journey began in 2024 through projects built with MongoDB, Express.js, React, and Node.js. Technical capabilities have since expanded to include Vue.js, Next.js, Python, FastAPI, and PHP for web application development.",
 
       focus:
-        "I currently focus on web development using React and Next.js for the frontend and Python FastAPI for the backend. I also continue to improve my skills through personal projects, technology exploration, and professional experience.",
+        "Current development focuses on React and Next.js for frontend applications and Python FastAPI for backend services. Key priorities include feature implementation, organized application architecture, code quality, and component integration.",
 
       direction:
-        "I aim to continue growing as a Full-Stack Developer by building applications that are not only visually appealing, but also well-structured, performant, and user-focused.",
+        "Committed to advancing full-stack development capabilities through relevant technologies and practical project delivery. Development goals include building maintainable, high-performing applications that deliver an effective user experience.",
     },
-
+    
     skills: {
       title: "Skills",
     },
@@ -238,6 +246,14 @@ export const translations = {
       send: "Send Message",
       success: "Message sent successfully.",
       failed: "Failed to send message.",
+    },
+
+    neonRadio: {
+      active: "CYBERPUNK MODE ACTIVE",
+      pressPlay: "PRESS PLAY TO START",
+      paused: "MUSIC PAUSED",
+      minimize: "Click to hide music player",
+      expand: "Click to show music player",
     },
   },
 };

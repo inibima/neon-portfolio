@@ -1,0 +1,492 @@
+/* =========================================
+   CYBERPUNK BACKGROUND
+========================================= */
+
+body {
+  position: relative;
+  isolation: isolate;
+}
+
+.cyberpunk-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+
+  background:
+    linear-gradient(rgba(5, 5, 16, 0.4), rgba(5, 5, 16, 0.55)),
+    url("/cyberpunk-background.png") center center / cover no-repeat,
+    var(--bg);
+}
+
+.cyberpunk-backdrop > * {
+  position: absolute;
+}
+
+.cyberpunk-grid {
+  position: absolute;
+  inset: -50%;
+
+  background-image:
+    linear-gradient(rgba(125, 249, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 249, 255, 0.055) 1px, transparent 1px);
+
+  background-size: 55px 55px;
+  transform: perspective(500px) rotateX(55deg) scale(1.5);
+  transform-origin: center;
+  animation: cyberpunk-grid-move 8s linear infinite;
+  opacity: 0.7;
+  will-change: transform, background-position;
+}
+
+.cyberpunk-glow {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+  animation: cyberpunk-glow-pulse 5s ease-in-out infinite alternate;
+  will-change: transform, background-position;
+}
+
+.cyberpunk-glow-cyan {
+  top: 5%;
+  left: -160px;
+  background: var(--cyan);
+}
+
+.cyberpunk-glow-pink {
+  right: -160px;
+  bottom: 5%;
+  background: var(--pink);
+  animation-delay: -4s;
+}
+
+.cyberpunk-scanlines {
+  position: absolute;
+  inset: 0;
+
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+
+  opacity: 0.35;
+}
+
+.cyberpunk-particles {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(circle, rgba(125, 249, 255, 0.65) 1px, transparent 2px),
+    radial-gradient(circle, rgba(255, 79, 216, 0.55) 1px, transparent 2px);
+
+  background-size:
+    130px 170px,
+    190px 220px;
+
+  background-position:
+    0 0,
+    60px 80px;
+
+  opacity: 0.45;
+  animation: cyberpunk-particles-move 12s linear infinite;
+  will-change: transform, background-position;
+}
+
+/* =========================================
+   BACKGROUND ANIMATIONS
+========================================= */
+
+@keyframes cyberpunk-grid-move {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 110px;
+  }
+}
+
+@keyframes cyberpunk-glow-pulse {
+  from {
+    opacity: 0.1;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 0.22;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes cyberpunk-particles-move {
+  from {
+    background-position:
+      0 0,
+      60px 80px;
+  }
+
+  to {
+    background-position:
+      0 340px,
+      250px 440px;
+  }
+}
+
+/* =========================================
+   NEON RADIO PANEL
+========================================= */
+
+.cyberpunk-music-panel {
+  position: fixed;
+  top: 50%;
+  right: 16px;
+  bottom: auto;
+  left: auto;
+  z-index: 1100;
+
+  box-sizing: border-box;
+  width: min(350px, calc(100vw - 32px));
+  padding: 16px;
+
+  color: var(--text);
+
+  background: rgba(5, 5, 16, 0.88);
+
+  border: 1px solid rgba(125, 249, 255, 0.35);
+  border-radius: 16px;
+
+  box-shadow:
+    0 0 24px rgba(125, 249, 255, 0.1),
+    inset 0 0 18px rgba(255, 79, 216, 0.035);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  transform: translateY(-50%);
+  animation: neon-radio-slide-in 0.3s ease-out both;
+}
+
+/* =========================================
+   NEON RADIO HEADER
+========================================= */
+
+.cyberpunk-music-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.cyberpunk-music-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex: 1;
+  min-width: 0;
+}
+
+.cyberpunk-music-info > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.cyberpunk-music-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.cyberpunk-music-info strong {
+  display: block;
+
+  color: var(--cyan);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+}
+
+.cyberpunk-music-indicator {
+  flex-shrink: 0;
+
+  color: var(--cyan);
+  font-size: 1.2rem;
+
+  text-shadow: 0 0 12px var(--cyan);
+}
+
+.cyberpunk-music-status {
+  display: block;
+  margin-top: 5px;
+
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+}
+
+/* =========================================
+   NEON RADIO HIDE BUTTON
+========================================= */
+
+.cyberpunk-minimize-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+
+  border: 1px solid rgba(125, 249, 255, 0.45);
+  border-radius: 8px;
+
+  background: rgba(125, 249, 255, 0.08);
+  color: var(--cyan);
+
+  font-size: 22px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cyberpunk-minimize-button:hover {
+  background: rgba(255, 79, 216, 0.16);
+  border-color: var(--pink);
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   NEON RADIO MUSIC CONTROLS
+========================================= */
+
+.cyberpunk-music-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.cyberpunk-play-button {
+  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+
+  border: 1px solid var(--cyan);
+  border-radius: 12px;
+
+  color: var(--cyan);
+  background: rgba(125, 249, 255, 0.08);
+
+  font-size: 1.1rem;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cyberpunk-play-button:hover {
+  color: var(--bg);
+  background: var(--cyan);
+  box-shadow: 0 0 18px rgba(125, 249, 255, 0.3);
+}
+
+.cyberpunk-volume-control {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  min-width: 0;
+  flex: 1;
+
+  color: var(--muted);
+  font-size: 0.7rem;
+}
+
+.cyberpunk-volume-control input {
+  min-width: 0;
+  flex: 1;
+
+  accent-color: var(--cyan);
+  cursor: pointer;
+}
+
+/* =========================================
+   NEON RADIO DESKTOP LAUNCHER
+========================================= */
+
+.cyberpunk-radio-launcher {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  z-index: 1101;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 54px;
+  padding: 0;
+
+  color: var(--cyan);
+  background: rgba(5, 5, 16, 0.92);
+
+  border: 1px solid var(--cyan);
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+
+  box-shadow: 0 0 12px rgba(125, 249, 255, 0.25);
+
+  font-size: 21px;
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition:
+    width 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cyberpunk-radio-launcher:hover {
+  width: 48px;
+
+  background: rgba(125, 249, 255, 0.12);
+
+  box-shadow: 0 0 18px rgba(125, 249, 255, 0.45);
+}
+
+/* =========================================
+   NEON RADIO ANIMATION
+========================================= */
+
+@keyframes neon-radio-slide-in {
+  from {
+    opacity: 0;
+    translate: 35px 0;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .cyberpunk-music-panel {
+    right: 12px;
+    width: min(350px, calc(100vw - 24px));
+    padding: 13px;
+  }
+
+  .cyberpunk-glow {
+    width: 260px;
+    height: 260px;
+    filter: blur(75px);
+  }
+
+  .cyberpunk-grid {
+    background-size: 42px 42px;
+  }
+
+  /*
+   * Ikon desktop disembunyikan di mobile.
+   * Pembuka radio akan ditempatkan di hamburger menu
+   * pada tahap integrasi berikutnya.
+   */
+  .cyberpunk-radio-launcher {
+    display: none;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .cyberpunk-grid,
+  .cyberpunk-glow,
+  .cyberpunk-particles {
+    animation: none;
+  }
+
+  .cyberpunk-music-panel {
+    animation: none;
+  }
+
+  .cyberpunk-radio-launcher,
+  .cyberpunk-minimize-button,
+  .cyberpunk-play-button {
+    transition: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* =========================================
+   NEON RADIO BUTTON IN MOBILE MENU
+========================================= */
+
+.nav-radio-item {
+  display: none;
+  list-style: none;
+}
+
+@media (max-width: 600px) {
+  .nav-radio-item {
+    display: list-item;
+  }
+}
+
+.nav-radio-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 10px 0;
+
+  color: var(--cyan, #7df9ff);
+  background: transparent;
+
+  border: none;
+
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    text-shadow 0.2s ease;
+}
+
+.nav-radio-button:hover {
+  color: var(--pink, #ff4fd8);
+  text-shadow: 0 0 10px rgba(255, 79, 216, 0.45);
+}
+
+.nav-radio-button span:first-child {
+  font-size: 1.2em;
+}
